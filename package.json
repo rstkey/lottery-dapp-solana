@@ -16,6 +16,7 @@
     "@solana/wallet-adapter-react-ui": "^0.9.34",
     "@solana/wallet-adapter-solflare": "^0.6.28",
     "@solana/web3.js": "^1.88.0",
+    "@types/bs58": "^4.0.4",
     "bs58": "^5.0.0",
     "buffer": "^6.0.3",
     "class-variance-authority": "^0.7.0",

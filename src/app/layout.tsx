@@ -1,12 +1,11 @@
 import './globals.css'
 import { ReactNode } from 'react'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { SolanaProvider } from '@/solana/provider/solana-provider'
-import { Header } from '@/components/shared'
 import { cn } from '@/lib/utils/utils'
-import { Toaster } from 'sonner'
+import { Inter } from 'next/font/google'
+import { Header } from '@/components/shared'
 import AppProvider from '@/context/AppProvider'
+import { SolanaProvider } from '@/solana/provider/solana-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,7 +22,6 @@ export default function RootLayout({ children, }: { children: ReactNode }) {
           <AppProvider>
             <Header />
             {children}
-            <Toaster />
           </AppProvider>
         </SolanaProvider>
       </body>

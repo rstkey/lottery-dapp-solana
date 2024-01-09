@@ -5,7 +5,6 @@ export const mockWallet = () => {
   return {} as AnchorWallet
 }
 
-
 export function ellipsify(pk: unknown, len = 5) {
   const str = String(pk);
   if (str.length > 30) {

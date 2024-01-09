@@ -7,4 +7,4 @@ export const SEEDS = {
 } as const;
 
 
-export const PROGRAM_ID = new PublicKey("ECWWMLCvKmp8bXAZ1B5iRotzRwEHdxa9tDjHCnD8XCzP");
+export const PROGRAM_ID = new PublicKey("5oHayfLkmDnSaynZrxDxbfpBa677VCN2Tiu7AJGqenL6");
