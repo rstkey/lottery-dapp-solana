@@ -5,8 +5,8 @@ const toastOptions: ToastOptions = {
   position: 'bottom-right'
 }
 
-const useToast = () => {
-  const showToast = (message: string, type: 'success' | 'error', option?: ToastOptions) => {
+const showToast = () => {
+  const showToastFun = (message: string, type: 'success' | 'error', option?: ToastOptions) => {
     if (type === 'success') {
       toast.success(message, { ...toastOptions, ...option });
     } else if (type === 'error') {
@@ -14,7 +14,7 @@ const useToast = () => {
     }
   }
 
-  return showToast;
+  return showToastFun;
 }
 
-export default useToast;
+export default showToast;

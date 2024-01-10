@@ -4,15 +4,12 @@ import { ReactNode, createContext, useContext, useEffect, useMemo, useState } fr
 import { BN } from "@project-serum/anchor";
 import { SystemProgram, LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
 import { useAnchorWallet, useConnection } from "@solana/wallet-adapter-react";
-import bs58 from "bs58";
-
 
 import { getProgram, getLotteryAddress, getMasterAddress, getTicketAddress, getTotalPrize } from "@/lib/utils/program";
-import useToast from "@/hooks/useToast";
 import { confirmTx, mockWallet } from "@/lib/utils/helper";
 import { handleError } from "@/lib/utils/error";
 import { History, Lottery } from "@/lib/types/types";
-
+import showToast from "@/hooks/useToast";
 
 interface IAppContext {
   lotteryId: number;
@@ -34,7 +31,7 @@ interface IAppContext {
 const AppContext = createContext<IAppContext | null>(null);
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
-  const toast = useToast();
+  const toast = showToast();
   const wallet = useAnchorWallet();
   const { connection } = useConnection();
   const [initialized, setInitialized] = useState(false);
@@ -242,10 +239,7 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
   }, [lottery]);
 
   const isFinished = !!(lottery && lottery.winnerId != null);
-  console.log('lottery: ', lottery);
-  console.log('isFinished: ', isFinished);
-  const canClaim = !!(lottery && !lottery.claimed && userWinningId)
-  console.log('userWinningId: ', userWinningId);
+  const canClaim = !!(lottery && !lottery.claimed && userWinningId);
   const isLotteryAuthority = !!(wallet && lottery && wallet?.publicKey?.equals(lottery?.authority ?? null));
 
   return (
